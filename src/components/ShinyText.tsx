@@ -128,7 +128,7 @@ const ShinyText: FC<ShinyTextProps> = ({
 
   return (
     <motion.span
-      className={`inline-block ${className}`}
+      className={`block max-w-full break-words whitespace-normal ${className}`}
       style={{ ...gradientStyle, backgroundPosition }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

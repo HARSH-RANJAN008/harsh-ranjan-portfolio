@@ -124,7 +124,7 @@ function App() {
             id="home"
             className="grid gap-8 pb-14 pt-6 sm:gap-10 sm:pb-16 sm:pt-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-12 lg:pt-14"
           >
-            <div className="space-y-7 sm:space-y-8 lg:pt-6">
+            <div className="min-w-0 space-y-7 sm:space-y-8 lg:pt-6">
               <Badge
                 variant="outline"
                 className="h-9 rounded-full border-slate-900/10 bg-white/80 px-4 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-slate-600"
@@ -224,7 +224,7 @@ function App() {
                 })}
               </div>
 
-              <div className="rounded-[1.75rem] border border-white/70 bg-white/70 px-5 py-4 shadow-[0_18px_60px_-36px_rgba(15,23,42,0.3)] backdrop-blur-xl">
+              <div className="overflow-hidden rounded-[1.75rem] border border-white/70 bg-white/70 px-5 py-4 shadow-[0_18px_60px_-36px_rgba(15,23,42,0.3)] backdrop-blur-xl">
                 <ShinyText
                   text="Focused on web development, strong fundamentals, and steady growth through projects, learning, and consistent practice."
                   speed={5}
@@ -236,7 +236,7 @@ function App() {
               </div>
             </div>
 
-            <div className="space-y-5 lg:pl-6">
+            <div className="min-w-0 space-y-5 lg:pl-6">
               <SpotlightCard
                 className="border-slate-900/8 bg-slate-950 text-slate-50 shadow-[0_28px_80px_-42px_rgba(15,23,42,0.9)]"
                 spotlightColor="rgba(245, 158, 11, 0.18)"
