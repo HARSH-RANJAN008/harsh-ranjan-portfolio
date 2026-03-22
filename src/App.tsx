@@ -84,8 +84,8 @@ function App() {
       </div>
 
       <header className="sticky top-0 z-50">
-        <div className="mx-auto max-w-6xl px-6 py-4 md:px-8 lg:px-10">
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-full border border-white/70 bg-white/70 px-4 py-3 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.35)] backdrop-blur-xl">
+        <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 md:px-8 lg:px-10">
+          <div className="flex flex-col gap-3 rounded-[1.75rem] border border-white/70 bg-white/70 px-4 py-3 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.35)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:rounded-full">
             <a
               href="#home"
               className="flex items-center gap-3 text-sm text-slate-700 transition hover:text-slate-950"
@@ -103,12 +103,12 @@ function App() {
               </span>
             </a>
 
-            <nav className="flex flex-wrap items-center justify-end gap-2 text-sm text-slate-600">
+            <nav className="no-scrollbar -mx-1 flex items-center gap-2 overflow-x-auto px-1 pb-1 text-sm text-slate-600 sm:mx-0 sm:justify-end sm:px-0 sm:pb-0">
               {navigation.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="rounded-full px-3 py-2 transition hover:bg-slate-950/6 hover:text-slate-950"
+                  className="shrink-0 rounded-full px-3 py-2 transition hover:bg-slate-950/6 hover:text-slate-950"
                 >
                   {item.label}
                 </a>
@@ -118,13 +118,13 @@ function App() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 pb-20 pt-4 md:px-8 lg:px-10">
+      <main className="mx-auto max-w-6xl px-4 pb-16 pt-2 sm:px-6 sm:pb-20 sm:pt-4 md:px-8 lg:px-10">
         <FadeContent blur duration={0.8}>
           <section
             id="home"
-            className="grid gap-10 pb-16 pt-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-12 lg:pt-14"
+            className="grid gap-8 pb-14 pt-6 sm:gap-10 sm:pb-16 sm:pt-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-12 lg:pt-14"
           >
-            <div className="space-y-8 lg:pt-6">
+            <div className="space-y-7 sm:space-y-8 lg:pt-6">
               <Badge
                 variant="outline"
                 className="h-9 rounded-full border-slate-900/10 bg-white/80 px-4 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-slate-600"
@@ -158,7 +158,7 @@ function App() {
                 internships and real-world software opportunities.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                 {resumeLink ? (
                   <a
                     href={resumeLink.href}
@@ -168,7 +168,7 @@ function App() {
                     }
                     className={cn(
                       buttonVariants({ size: "lg" }),
-                      "h-12 rounded-full px-6 text-sm font-semibold shadow-[0_18px_40px_-24px_rgba(16,63,61,0.55)]",
+                      "h-12 w-full justify-center rounded-full px-6 text-sm font-semibold shadow-[0_18px_40px_-24px_rgba(16,63,61,0.55)] sm:w-auto",
                     )}
                   >
                     View resume
@@ -185,7 +185,7 @@ function App() {
                     }
                     className={cn(
                       buttonVariants({ size: "lg", variant: "outline" }),
-                      "h-12 rounded-full border-slate-900/12 bg-white/75 px-6 text-sm font-semibold backdrop-blur-md",
+                      "h-12 w-full justify-center rounded-full border-slate-900/12 bg-white/75 px-6 text-sm font-semibold backdrop-blur-md sm:w-auto",
                     )}
                   >
                     LinkedIn profile
@@ -197,7 +197,7 @@ function App() {
                   href="#about"
                   className={cn(
                     buttonVariants({ size: "lg", variant: "ghost" }),
-                    "h-12 rounded-full px-6 text-sm font-semibold text-slate-700",
+                    "h-12 w-full justify-center rounded-full px-6 text-sm font-semibold text-slate-700 sm:w-auto",
                   )}
                 >
                   Explore profile
@@ -241,7 +241,7 @@ function App() {
                 className="border-slate-900/8 bg-slate-950 text-slate-50 shadow-[0_28px_80px_-42px_rgba(15,23,42,0.9)]"
                 spotlightColor="rgba(245, 158, 11, 0.18)"
               >
-                <div className="space-y-6">
+                <div className="space-y-5 sm:space-y-6">
                   <div className="flex items-center justify-between gap-3">
                     <Badge className="h-8 rounded-full bg-white/10 px-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-white">
                       Profile card
@@ -251,7 +251,7 @@ function App() {
                     </span>
                   </div>
 
-                  <div className="rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.18),transparent_48%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] p-4">
+                  <div className="rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.18),transparent_48%),linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] p-3 sm:p-4">
                     <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))]">
                       <div className="relative aspect-[4/5]">
                         <img
@@ -279,7 +279,7 @@ function App() {
                         key={stat.label}
                         className="rounded-[1.25rem] border border-white/10 bg-white/6 p-4"
                       >
-                        <p className="text-2xl font-semibold tracking-[-0.05em] text-white">
+                        <p className="text-xl font-semibold tracking-[-0.05em] text-white sm:text-2xl">
                           {stat.value}
                         </p>
                         <p className="mt-1 text-sm text-slate-300">
@@ -309,7 +309,7 @@ function App() {
                         <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
                           {fact.eyebrow}
                         </p>
-                        <h2 className="text-2xl font-semibold tracking-[-0.04em] text-slate-950">
+                        <h2 className="text-xl font-semibold tracking-[-0.04em] text-slate-950 sm:text-2xl">
                           {fact.value}
                         </h2>
                         <p className="text-sm leading-7 text-slate-600">
@@ -527,7 +527,7 @@ function App() {
                     spotlightColor="rgba(245, 158, 11, 0.12)"
                   >
                     <div className="space-y-4">
-                      <div className="flex items-start justify-between gap-4">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                         <div className="space-y-2">
                           <p className="text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-500">
                             {certification.issuer}
@@ -537,7 +537,7 @@ function App() {
                           </h3>
                         </div>
                         {certification.result ? (
-                          <Badge className="h-auto rounded-full px-3 py-1.5 text-sm">
+                          <Badge className="h-auto self-start rounded-full px-3 py-1.5 text-sm">
                             {certification.result}
                           </Badge>
                         ) : null}
@@ -681,7 +681,7 @@ function App() {
                             : "border-slate-900/10 bg-[linear-gradient(180deg,rgba(16,63,61,0.06),rgba(255,255,255,0.8))]",
                         )}
                       >
-                        <div className="flex items-start justify-between gap-4">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                           <div>
                             <p
                               className={cn(
@@ -695,7 +695,7 @@ function App() {
                             </p>
                             <h3
                               className={cn(
-                                "mt-3 text-3xl font-semibold tracking-[-0.06em]",
+                                "mt-3 text-2xl font-semibold tracking-[-0.06em] sm:text-3xl",
                                 isActualProject
                                   ? "text-white"
                                   : "text-slate-950",
@@ -722,7 +722,7 @@ function App() {
                             <div
                               key={highlight}
                               className={cn(
-                                "flex items-center gap-3 rounded-full px-3 py-2 text-sm",
+                                "flex items-start gap-3 rounded-full px-3 py-2 text-sm",
                                 isActualProject
                                   ? "border border-white/10 bg-white/6 text-slate-200"
                                   : "border border-slate-900/8 bg-white/80 text-slate-700",
@@ -743,7 +743,7 @@ function App() {
                       </div>
 
                       <div className="space-y-3">
-                        <div className="flex items-start justify-between gap-4">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                           <h3
                             className={cn(
                               "text-2xl font-semibold tracking-[-0.05em]",
@@ -815,7 +815,7 @@ function App() {
                                 size: "lg",
                                 variant: isActualProject ? "secondary" : "outline",
                               }),
-                              "h-11 rounded-full px-5 text-sm font-semibold",
+                              "h-11 w-full justify-center rounded-full px-5 text-sm font-semibold sm:w-auto",
                             )}
                           >
                             {project.ctaLabel}
@@ -834,7 +834,7 @@ function App() {
         <FadeContent blur duration={0.8} delay={0.24}>
           <section
             id="contact"
-            className="rounded-[2rem] border border-slate-900/10 bg-slate-950 px-6 py-8 text-white shadow-[0_35px_90px_-48px_rgba(15,23,42,0.95)] md:px-8 md:py-10"
+            className="rounded-[2rem] border border-slate-900/10 bg-slate-950 px-4 py-8 text-white shadow-[0_35px_90px_-48px_rgba(15,23,42,0.95)] sm:px-6 md:px-8 md:py-10"
           >
             <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
               <div className="space-y-5">
@@ -863,22 +863,22 @@ function App() {
                       href={link.href}
                       target={opensNewTab(link.href) ? "_blank" : undefined}
                       rel={opensNewTab(link.href) ? "noreferrer" : undefined}
-                      className="flex items-center justify-between gap-4 rounded-[1.75rem] border border-white/10 bg-white/6 p-5 transition hover:bg-white/10"
+                      className="flex flex-col items-start gap-4 rounded-[1.75rem] border border-white/10 bg-white/6 p-5 transition hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between"
                     >
-                      <div className="flex items-center gap-4">
+                      <div className="flex min-w-0 items-center gap-4">
                         <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-white/10 text-white">
                           <Icon className="size-5" />
                         </span>
-                        <div>
+                        <div className="min-w-0">
                           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-400">
                             {link.label}
                           </p>
-                          <p className="mt-1 text-sm text-slate-200">
+                          <p className="mt-1 break-all text-sm text-slate-200 sm:break-normal">
                             {link.detail}
                           </p>
                         </div>
                       </div>
-                      <ArrowUpRight className="size-5 shrink-0 text-slate-400" />
+                      <ArrowUpRight className="size-5 shrink-0 self-end text-slate-400 sm:self-auto" />
                     </a>
                   );
                 })}
@@ -905,8 +905,8 @@ function App() {
         </FadeContent>
       </main>
 
-      <footer className="mx-auto max-w-6xl px-6 pb-10 md:px-8 lg:px-10">
-        <div className="flex flex-col gap-2 rounded-full border border-white/70 bg-white/70 px-5 py-4 text-sm text-slate-600 shadow-[0_18px_50px_-34px_rgba(15,23,42,0.25)] backdrop-blur-xl md:flex-row md:items-center md:justify-between">
+      <footer className="mx-auto max-w-6xl px-4 pb-8 sm:px-6 sm:pb-10 md:px-8 lg:px-10">
+        <div className="flex flex-col gap-2 rounded-[1.75rem] border border-white/70 bg-white/70 px-5 py-4 text-center text-sm text-slate-600 shadow-[0_18px_50px_-34px_rgba(15,23,42,0.25)] backdrop-blur-xl sm:rounded-full md:flex-row md:items-center md:justify-between md:text-left">
           <p>
             Harsh Ranjan | B.Tech Information Technology | Haldia Institute of
             Technology
