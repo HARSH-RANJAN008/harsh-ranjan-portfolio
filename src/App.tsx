@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   Camera,
   Download,
+  Menu,
   Sparkles,
 } from "lucide-react";
 
@@ -13,6 +14,15 @@ import SpotlightCard from "@/components/SpotlightCard";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import {
   aboutParagraphs,
   achievementBadges,
@@ -85,7 +95,7 @@ function App() {
 
       <header className="sticky top-0 z-50">
         <div className="mx-auto max-w-6xl px-4 py-4 sm:px-6 md:px-8 lg:px-10">
-          <div className="flex flex-col gap-3 rounded-[1.75rem] border border-white/70 bg-white/70 px-4 py-3 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.35)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between sm:rounded-full">
+          <div className="flex items-center justify-between gap-3 rounded-[1.75rem] border border-white/70 bg-white/70 px-4 py-3 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.35)] backdrop-blur-xl sm:rounded-full">
             <a
               href="#home"
               className="flex items-center gap-3 text-sm text-slate-700 transition hover:text-slate-950"
@@ -103,17 +113,55 @@ function App() {
               </span>
             </a>
 
-            <nav className="no-scrollbar -mx-1 flex items-center gap-2 overflow-x-auto px-1 pb-1 text-sm text-slate-600 sm:mx-0 sm:justify-end sm:px-0 sm:pb-0">
+            <nav className="hidden items-center justify-end gap-2 text-sm text-slate-600 sm:flex">
               {navigation.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
-                  className="shrink-0 rounded-full px-3 py-2 transition hover:bg-slate-950/6 hover:text-slate-950"
+                  className="rounded-full px-3 py-2 transition hover:bg-slate-950/6 hover:text-slate-950"
                 >
                   {item.label}
                 </a>
               ))}
             </nav>
+
+            <Sheet>
+              <SheetTrigger asChild>
+                <button
+                  type="button"
+                  aria-label="Open navigation menu"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "icon-lg" }),
+                    "size-11 rounded-full border-slate-900/10 bg-white/80 text-slate-700 shadow-[0_12px_30px_-20px_rgba(15,23,42,0.35)] sm:hidden",
+                  )}
+                >
+                  <Menu className="size-5" />
+                </button>
+              </SheetTrigger>
+
+              <SheetContent side="right" className="sm:hidden">
+                <SheetHeader>
+                  <SheetTitle>Navigate portfolio</SheetTitle>
+                  <SheetDescription>
+                    Jump to any section from here.
+                  </SheetDescription>
+                </SheetHeader>
+
+                <div className="mt-4 space-y-3">
+                  {navigation.map((item) => (
+                    <SheetClose asChild key={item.href}>
+                      <a
+                        href={item.href}
+                        className="flex items-center justify-between rounded-[1.25rem] border border-slate-900/10 bg-white/80 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-950 hover:text-white"
+                      >
+                        <span>{item.label}</span>
+                        <ArrowUpRight className="size-4" />
+                      </a>
+                    </SheetClose>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </header>
@@ -127,7 +175,7 @@ function App() {
             <div className="min-w-0 space-y-7 sm:space-y-8 lg:pt-6">
               <Badge
                 variant="outline"
-                className="h-9 rounded-full border-slate-900/10 bg-white/80 px-4 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-slate-600"
+                className="h-auto max-w-full rounded-full border-slate-900/10 bg-white/80 px-4 py-2 text-center text-[0.62rem] font-semibold uppercase leading-5 tracking-[0.2em] text-slate-600 sm:h-9 sm:text-[0.7rem] sm:tracking-[0.26em]"
               >
                 Third Year | B.Tech | Information Technology
               </Badge>
@@ -152,7 +200,7 @@ function App() {
                 />
               </div>
 
-              <p className="max-w-2xl text-balance text-base leading-8 text-slate-600 md:text-lg">
+              <p className="max-w-2xl text-balance text-center text-base leading-8 text-slate-600 sm:text-left md:text-lg">
                 I am an Information Technology student focused on improving my
                 fundamentals, building meaningful projects, and preparing for
                 internships and real-world software opportunities.
